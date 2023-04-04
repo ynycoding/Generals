@@ -1,0 +1,36 @@
+C:\Users\Administrator\source\repos\Generals\Generals\bin\Debug\Generals.exe.config
+C:\Users\Administrator\source\repos\Generals\Generals\bin\Debug\Generals.exe
+C:\Users\Administrator\source\repos\Generals\Generals\bin\Debug\Generals.pdb
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.Properties.Resources.resources
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.exe
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.pdb
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.Form1.resources
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.Form2.resources
+C:\Users\Administrator\source\repos\Generals\Generals\bin\Debug\Generals.exe.manifest
+C:\Users\Administrator\source\repos\Generals\Generals\bin\Debug\Generals.application
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.exe.manifest
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.application
+C:\Users\Administrator\source\repos\Generals\Generals\obj\Debug\Generals.AI_Manager.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Debug\Generals.exe.config
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Debug\Generals.exe.manifest
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Debug\Generals.application
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Debug\Generals.exe
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Debug\Generals.pdb
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.csprojAssemblyReference.cache
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.AI_Manager.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.Form1.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.Form2.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.Properties.Resources.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.csproj.GenerateResource.cache
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.exe.manifest
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.application
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.exe
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.pdb
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.Game_Play_Control.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Debug\AxInterop.MSComctlLib.dll
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\AxInterop.MSComctlLib.dll
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Debug\Generals.csproj.ResolveComReference.cache
