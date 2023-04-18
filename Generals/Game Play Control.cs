@@ -53,6 +53,7 @@ namespace Generals
 			checkBox1.Checked = (Settings.Default.Rule & 1) > 0;
 			checkBox2.Checked = (Settings.Default.Rule & 2) > 0;
 			checkBox3.Checked = Settings.Default.ViewAsKing;
+			checkBox4.Checked = Settings.Default.Legacy;
 		}
 
 		private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -70,6 +71,11 @@ namespace Generals
 		{
 			Settings.Default.Rule &= 1;
 			Settings.Default.Rule |= Convert.ToInt32(checkBox2.Checked);
+		}
+
+		private void checkBox4_CheckedChanged(object sender, EventArgs e)
+		{
+			Settings.Default.Legacy = checkBox3.Checked;
 		}
 	}
 }

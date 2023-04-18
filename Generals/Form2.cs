@@ -114,7 +114,7 @@ namespace Generals
 
 		private void Form2_Resize(object sender, EventArgs e)
 		{
-			int len = Math.Min(Height - pictureBox1.Location.Y-100, listView1.Location.X - 5);
+			int len = Math.Min(Height - pictureBox1.Location.Y-50, listView1.Location.X - 5);
 			pictureBox1.Size = new Size(len, len);
 		}
 
@@ -426,7 +426,7 @@ namespace Generals
 		{
 			//g.FillRectangle(new SolidBrush(Color.Gray), new Rectangle(1, 1, size, size));
 			var pen = new Pen(Brushes.Black);
-			pen.Width = 6;
+			pen.Width = 3;
 			for (int i = 0; i <= n; ++i)
 			{
 				g.DrawLine(pen, i * len, 0, i * len, n * len);
@@ -442,7 +442,7 @@ namespace Generals
 		public void Display(PictureBox rpictureBox1)
 		{
 			pictureBox1 = rpictureBox1;
-			canvas = new Bitmap(1600, 1600);
+			canvas = new Bitmap(40*n, 40*n);
 			g = Graphics.FromImage(canvas);
 			brushes[0] = new SolidBrush(Color.Gray);
 			brushes[1] = new SolidBrush(Color.Blue);
@@ -452,7 +452,7 @@ namespace Generals
 			brushes[5] = new SolidBrush(Color.DarkOrange);
 			brushes[7] = new SolidBrush(Color.DarkCyan);
 			brushes[8] = new SolidBrush(Color.Violet);
-			size = 1600;
+			size = 40*n;
 			len = size / n;
 			rlen = pictureBox1.Height / n;
 			//g.FillRectangle(new SolidBrush(Color.Gray), new Rectangle(1, 1, size, size));
@@ -482,7 +482,7 @@ namespace Generals
 			}
 				//	if (u == -1 || chk(i, j, u)) bru.Color = Color.Gray;
 				//}
-			g.FillRectangle(bru, new Rectangle((i - 1) * len + 3, (j - 1) * len + 3, len - 6, len - 6));
+			g.FillRectangle(bru, new Rectangle((i - 1) * len + 2, (j - 1) * len + 2, len - 3, len - 3));
 			//else g.FillRectangle(brushes[col[i, j]], new Rectangle((i - 1) * len + 2, (j - 1) * len + 2, len-4, 10));
 			switch (ter)
 			{
@@ -505,12 +505,12 @@ namespace Generals
 				}
 				var format = new StringFormat();
 				format.Alignment = StringAlignment.Center;
-				g.DrawString(cf.ToString(), new Font("Consolas", 16), Brushes.White, 
-					new Rectangle((i - 1) * len + 2, (j - 1) * len + 20, len - 3, len - 3), format);
+				g.DrawString(cf.ToString(), new Font("Consolas", 8), Brushes.White, 
+					new Rectangle((i - 1) * len + 2, (j - 1) * len + 10, len - 3, len - 3), format);
 			}
 			if (typ)
 			{
-				var pen = new Pen((typ1 ? Color.White : Color.Black), 6);
+				var pen = new Pen((typ1 ? Color.White : Color.Black), 3);
 				g.DrawRectangle(pen, new Rectangle((i - 1) * len, (j - 1) * len, len, len));
 			}
 		}
@@ -745,6 +745,7 @@ namespace Generals
 						return;
 					}
 					AI[AI_cnt].StandardInput.WriteLine(AI_cnt.ToString());
+					if(!Settings.Default.Legacy) AI[AI_cnt].StandardInput.WriteLine(n.ToString());
 				}
 				catch (Exception e)
 				{
@@ -793,7 +794,7 @@ namespace Generals
 				bfs(kingpos[i].Item1, kingpos[i].Item2);
 				for (int j = 1; j <= n; ++j) kdis[i, j] = dis[kingpos[j].Item1, kingpos[j].Item2];
 			}
-			int lim = 10;
+			int lim = n;
 			while (true)
 			{
 				int T = 1000;
