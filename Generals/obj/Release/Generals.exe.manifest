@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Generals.exe" size="41488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Generals.exe" size="48144">
       <assemblyIdentity name="Generals" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rclPBNNx0DevtlWDQji1XE2veQ/HoKBo/5wGTCEjD0M=</dsig:DigestValue>
+        <dsig:DigestValue>py2+BIgxUZkxxTOLepKnZjW4Wb+PEneqXaadsZ0e+KY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Generals.exe.config" size="1204">
+  <file name="Generals.exe.config" size="1385">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oHs/q7949WJeSVRDMGWi5tY+mYxvwpkcR9K3Zwxq54o=</dsig:DigestValue>
+      <dsig:DigestValue>lsn2ZF0eCmNCPf3dViQe1dSgzBRcWh2Pd+/HTkX0BKk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

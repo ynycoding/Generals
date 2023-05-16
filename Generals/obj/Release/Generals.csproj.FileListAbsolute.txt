@@ -18,3 +18,5 @@ C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\General
 C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\bin\Release\AxInterop.MSComctlLib.dll
 C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Release\AxInterop.MSComctlLib.dll
 C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Release\Generals.csproj.ResolveComReference.cache
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Release\Generals.Generator_Control.resources
+C:\Users\Administrator\OneDrive\PreCollege\Discrete Mathematics\Generals\Generals\obj\Release\Generals.Performance_Test.resources

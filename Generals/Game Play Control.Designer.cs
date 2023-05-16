@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.checkBox4 = new System.Windows.Forms.CheckBox();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.SuspendLayout();
 			// 
 			// textBox1
@@ -125,6 +127,11 @@
 			this.checkBox4.UseVisualStyleBackColor = true;
 			this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			// 
 			// Game_Play_Control
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -156,5 +163,6 @@
 		private System.Windows.Forms.CheckBox checkBox2;
 		private System.Windows.Forms.CheckBox checkBox3;
 		private System.Windows.Forms.CheckBox checkBox4;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 	}
 }

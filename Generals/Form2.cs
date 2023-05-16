@@ -31,6 +31,8 @@ namespace Generals
 
 		private void Form2_Load(object sender, EventArgs e)
 		{
+			game.label1 = label1;
+			game.finished = true;
 			//Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 			//AppSettingsSection mapsconfig = (AppSettingsSection)config.GetSection("Maps");
 			//foreach(var t in mapsconfig.Settings)
@@ -46,6 +48,7 @@ namespace Generals
 
 		private void loadMapFromFileToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			if (!game.finished) return;
 			string s = game.selectfile();
 			if (s.Length > 0)
 			{
@@ -143,6 +146,16 @@ namespace Generals
 				game.Surrender();
 			}
 		}
+
+		private void loadFromGeneratorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (!game.finished) return;
+			game.LoadFromGenerator();
+			game.Dispose();
+			game.Display(pictureBox1);
+			pause = false;
+			button1.Text = "Start Game";
+		}
 	}
 	public class Map
 	{
@@ -155,14 +168,33 @@ namespace Generals
 		{
 			return (x > 0 && y > 0 && x <= n && y <= n);
 		}
-		public bool Load(string path)
+		public void LoadFromGenerator()
 		{
-			if (!File.Exists(path))
+			string file = Settings.Default.Generator;
+			string s = Settings.Default.GenArg;
+			if (!File.Exists(file)) return;
+			Process gen = new Process();
+			var start = new ProcessStartInfo();
+			start.FileName = file;
+			start.UseShellExecute = false;
+			start.RedirectStandardInput = true;
+			start.RedirectStandardOutput = true;
+			start.CreateNoWindow = true;
+			gen.StartInfo = start;
+			try
 			{
-				MessageBox.Show("Map File does not exist", "Error");
-				return false;
+				gen.Start();
+				gen.StandardInput.WriteLine(s);
+				LoadFromStream(gen.StandardOutput);
+				if (!gen.HasExited) gen.Kill();
 			}
-			StreamReader p = new StreamReader(path);
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, file);
+			}
+		}
+		public void LoadFromStream(StreamReader p)
+		{
 			try
 			{
 				string line = p.ReadLine();
@@ -195,6 +227,16 @@ namespace Generals
 			{
 				MessageBox.Show(e.Message, "Map invalid");
 			}
+		}
+		public bool Load(string path)
+		{
+			if (!File.Exists(path))
+			{
+				MessageBox.Show("Map File does not exist", "Error");
+				return false;
+			}
+			StreamReader p = new StreamReader(path);
+			LoadFromStream(p);
 			return true;
 		}
 		public string selectfile()
@@ -215,6 +257,8 @@ namespace Generals
 	}
 	public class Game : Map
 	{
+		public Label label1;
+		public bool hidden;
 		const int M = 17;
 		public int[,] col = new int[N, N];
 		public string[] name = new string[N];
@@ -424,9 +468,10 @@ namespace Generals
 		}
 		void Drawgrid()
 		{
+			if (hidden) return;
 			//g.FillRectangle(new SolidBrush(Color.Gray), new Rectangle(1, 1, size, size));
 			var pen = new Pen(Brushes.Black);
-			pen.Width = 3;
+			pen.Width = 4;
 			for (int i = 0; i <= n; ++i)
 			{
 				g.DrawLine(pen, i * len, 0, i * len, n * len);
@@ -437,12 +482,14 @@ namespace Generals
 		}
 		void DrawSelected()
 		{
+			if (hidden) return;
 			if (cx > 0) render(cx, cy, playerid, true, true);
 		}
 		public void Display(PictureBox rpictureBox1)
 		{
+			if (hidden) return;
 			pictureBox1 = rpictureBox1;
-			canvas = new Bitmap(40*n, 40*n);
+			canvas = new Bitmap(80*n, 80*n);
 			g = Graphics.FromImage(canvas);
 			brushes[0] = new SolidBrush(Color.Gray);
 			brushes[1] = new SolidBrush(Color.Blue);
@@ -452,7 +499,7 @@ namespace Generals
 			brushes[5] = new SolidBrush(Color.DarkOrange);
 			brushes[7] = new SolidBrush(Color.DarkCyan);
 			brushes[8] = new SolidBrush(Color.Violet);
-			size = 40*n;
+			size = 80*n;
 			len = size / n;
 			rlen = pictureBox1.Height / n;
 			//g.FillRectangle(new SolidBrush(Color.Gray), new Rectangle(1, 1, size, size));
@@ -466,6 +513,7 @@ namespace Generals
 		}
 		public void render(int i, int j, int u = -1, bool typ = false, bool typ1=false)
 		{
+			if (hidden) return;
 			if (!checkpos(i, j)) return;
 			int cc = -1, cf = 0, ter = Math.Min(terrain[i, j], rule);
 			if (u==-1||chk(i, j, u))
@@ -482,18 +530,18 @@ namespace Generals
 			}
 				//	if (u == -1 || chk(i, j, u)) bru.Color = Color.Gray;
 				//}
-			g.FillRectangle(bru, new Rectangle((i - 1) * len + 2, (j - 1) * len + 2, len - 3, len - 3));
+			g.FillRectangle(bru, new Rectangle((i - 1) * len + 2, (j - 1) * len + 2, len - 4, len - 4));
 			//else g.FillRectangle(brushes[col[i, j]], new Rectangle((i - 1) * len + 2, (j - 1) * len + 2, len-4, 10));
 			switch (ter)
 			{
 				case 1:
-					g.DrawImage(Properties.Resources.mountain, new Rectangle((i - 1) * len + 5, (j - 1) * len + 5, len - 8, len - 8));
+					g.DrawImage(Properties.Resources.mountain, new Rectangle((i - 1) * len + 3, (j - 1) * len + 3, len - 5, len - 5));
 					break;
 				case 2:
-					g.DrawImage(Properties.Resources.tower, new Rectangle((i - 1) * len + 5, (j - 1) * len + 5, len - 8, len - 8));
+					g.DrawImage(Properties.Resources.tower, new Rectangle((i - 1) * len + 3, (j - 1) * len + 3, len - 5, len - 5));
 					break;
 				case 3:
-					g.DrawImage(Properties.Resources.king, new Rectangle((i - 1) * len + 5, (j - 1) * len + 5, len - 8, len - 8));
+					g.DrawImage(Properties.Resources.king, new Rectangle((i - 1) * len + 3, (j - 1) * len + 3, len - 5, len - 5));
 					break;
 			}
 			if (cf>0)
@@ -505,12 +553,12 @@ namespace Generals
 				}
 				var format = new StringFormat();
 				format.Alignment = StringAlignment.Center;
-				g.DrawString(cf.ToString(), new Font("Consolas", 8), Brushes.White, 
+				g.DrawString(cf.ToString(), new Font("Consolas", 16), Brushes.White, 
 					new Rectangle((i - 1) * len + 2, (j - 1) * len + 10, len - 3, len - 3), format);
 			}
 			if (typ)
 			{
-				var pen = new Pen((typ1 ? Color.White : Color.Black), 3);
+				var pen = new Pen((typ1 ? Color.White : Color.Black), 4);
 				g.DrawRectangle(pen, new Rectangle((i - 1) * len, (j - 1) * len, len, len));
 			}
 		}
@@ -525,6 +573,7 @@ namespace Generals
 			Stopwatch watch = new Stopwatch();
 			watch.Start();
 			++rndcnt;
+			label1.Text = "Round: " + rndcnt;
 			//Drawgrid();
 			for (int i = 1; i <= AI_cnt; ++i) for (int j = 0; j < 3; ++j) listcnt[i, j] = 0;
 			//var pen = new Pen(Brushes.Black, 6);
@@ -540,11 +589,11 @@ namespace Generals
 					listcnt[col[i, j], 0] += force[i, j];
 					if (terrain[i, j] >= 2)
 					{
-						++force[i, j];
+						if(rndcnt % 2 == 0) ++force[i, j];
 						++listcnt[col[i, j], 2];
 						render(i, j, playerid);
 					}
-					else if (terrain[i, j] == 0 && rndcnt % 25 == 0)
+					else if (terrain[i, j] == 0 && rndcnt % 50 == 0)
 					{
 						++force[i, j];
 						render(i, j, playerid);
@@ -555,9 +604,9 @@ namespace Generals
 			}
 			DrawSelected();
 			DrawOperation();
-			pictureBox1.Image = canvas;
+			if(!hidden) pictureBox1.Image = canvas;
 			//list.BeginUpdate();
-			for (int i=1; i<=AI_cnt; ++i)
+			if(!hidden) for (int i=1; i<=AI_cnt; ++i)
 			{
 				for (int j=0; j<3; ++j)
 				{
@@ -573,7 +622,7 @@ namespace Generals
 			{
 				int id = 0;
 				for (int t = 1; t <= AI_cnt; ++t) if (!defeated[t]) id = t;
-				g.DrawString("Winner is "+brushes[id].Color.ToString(), new Font("宋体", 60), Brushes.White, size/8, size/2);
+				if (!hidden) g.DrawString("Winner is "+brushes[id].Color.ToString(), new Font("宋体", 60), Brushes.White, size/8, size/2);
 				gameplay.Enabled = false;
 				finished = true;
 				Dispose();
@@ -663,10 +712,12 @@ namespace Generals
 			}
 			DrawOperation();
 			watch.Stop();
-			gameplay.Interval = Math.Max(Settings.Default.Gap - watch.Elapsed.Milliseconds, 1);
+			if(!hidden) gameplay.Interval = Math.Max(Settings.Default.Gap - watch.Elapsed.Milliseconds, 1);
 		}
 		public void Start(Game_End_handler end_Handler, ListView list1)
 		{
+			rndcnt = 0;
+			label1.Text = "Round: " + rndcnt;
 			Drawgrid();
 			rule = Settings.Default.Rule;
 			if ((rule & 1) == 0) rule = 0;
@@ -712,16 +763,19 @@ namespace Generals
 				string name = pv[pv.Length - 1];
 				name = name.Substring(0, name.Length - 4);
 
-				var item = new ListViewItem();
-				item.Text = name;
-				item.SubItems.Add("0");
-				item.SubItems.Add("0");
-				item.SubItems.Add("0");
-				item.SubItems.Add("1");
-				item.BackColor = brushes[AI_cnt].Color;
-				//list.BeginUpdate();
-				list.Items.Add(item);
-				//list.EndUpdate();
+				if(!hidden)
+				{
+					var item = new ListViewItem();
+					item.Text = name;
+					item.SubItems.Add("0");
+					item.SubItems.Add("0");
+					item.SubItems.Add("0");
+					item.SubItems.Add("1");
+					item.BackColor = brushes[AI_cnt].Color;
+					//list.BeginUpdate();
+					list.Items.Add(item);
+					//list.EndUpdate();
+				}
 
 				AInames[AI_cnt] = name;
 				typ[AI_cnt] = 0;
@@ -794,7 +848,7 @@ namespace Generals
 				bfs(kingpos[i].Item1, kingpos[i].Item2);
 				for (int j = 1; j <= n; ++j) kdis[i, j] = dis[kingpos[j].Item1, kingpos[j].Item2];
 			}
-			int lim = n;
+			int lim = 2*n;
 			while (true)
 			{
 				int T = 1000;

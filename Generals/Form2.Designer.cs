@@ -31,7 +31,6 @@
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.loadRecentMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadMapFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadFromGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.button1 = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
 			this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -61,18 +61,11 @@
 			// filesToolStripMenuItem
 			// 
 			this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadRecentMapsToolStripMenuItem,
             this.loadMapFromFileToolStripMenuItem,
             this.loadFromGeneratorToolStripMenuItem});
 			this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
 			this.filesToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
 			this.filesToolStripMenuItem.Text = "Files";
-			// 
-			// loadRecentMapsToolStripMenuItem
-			// 
-			this.loadRecentMapsToolStripMenuItem.Name = "loadRecentMapsToolStripMenuItem";
-			this.loadRecentMapsToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-			this.loadRecentMapsToolStripMenuItem.Text = "Load recent maps";
 			// 
 			// loadMapFromFileToolStripMenuItem
 			// 
@@ -86,6 +79,7 @@
 			this.loadFromGeneratorToolStripMenuItem.Name = "loadFromGeneratorToolStripMenuItem";
 			this.loadFromGeneratorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
 			this.loadFromGeneratorToolStripMenuItem.Text = "Load from generator";
+			this.loadFromGeneratorToolStripMenuItem.Click += new System.EventHandler(this.loadFromGeneratorToolStripMenuItem_Click);
 			// 
 			// button1
 			// 
@@ -168,11 +162,23 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
+			// label1
+			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("宋体", 12F);
+			this.label1.Location = new System.Drawing.Point(814, 288);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(56, 16);
+			this.label1.TabIndex = 7;
+			this.label1.Text = "Round:";
+			// 
 			// Form2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1227, 800);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.pictureBox1);
@@ -202,7 +208,6 @@
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem loadRecentMapsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadMapFromFileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadFromGeneratorToolStripMenuItem;
 		private System.Windows.Forms.Button button1;
@@ -214,5 +219,6 @@
 		private System.ComponentModel.BackgroundWorker backgroundWorker2;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Label label1;
 	}
 }

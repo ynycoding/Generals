@@ -81,5 +81,29 @@ namespace Generals {
                 this["Legacy"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Generator {
+            get {
+                return ((string)(this["Generator"]));
+            }
+            set {
+                this["Generator"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GenArg {
+            get {
+                return ((string)(this["GenArg"]));
+            }
+            set {
+                this["GenArg"] = value;
+            }
+        }
     }
 }

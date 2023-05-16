@@ -99,6 +99,18 @@
     <Compile Include="Game Play Control.Designer.cs">
       <DependentUpon>Game Play Control.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generator Control.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generator Control.Designer.cs">
+      <DependentUpon>Generator Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance Test.Designer.cs">
+      <DependentUpon>Performance Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.Designer.cs">
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Game Play Control.resx">
       <DependentUpon>Game Play Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generator Control.resx">
+      <DependentUpon>Generator Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance Test.resx">
+      <DependentUpon>Performance Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

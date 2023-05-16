@@ -71,5 +71,17 @@ namespace Generals
 			play.Show();
 			play.game.issandbox = true;
 		}
+
+		private void generatorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Generator_Control control = new Generator_Control();
+			control.ShowDialog();
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			Performance_Test pf = new Performance_Test();
+			pf.ShowDialog();
+		}
 	}
 }

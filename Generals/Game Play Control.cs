@@ -75,7 +75,7 @@ namespace Generals
 
 		private void checkBox4_CheckedChanged(object sender, EventArgs e)
 		{
-			Settings.Default.Legacy = checkBox3.Checked;
+			Settings.Default.Legacy = checkBox4.Checked;
 		}
 	}
 }
