@@ -109,7 +109,7 @@
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.textBox1);
 			this.Name = "Generator_Control";
-			this.Text = "Generator Control";
+			this.Text = "Generator Config";
 			this.Load += new System.EventHandler(this.Generator_Control_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

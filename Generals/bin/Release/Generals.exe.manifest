@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Generals.exe" size="48144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Generals.exe" size="47632">
       <assemblyIdentity name="Generals" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>py2+BIgxUZkxxTOLepKnZjW4Wb+PEneqXaadsZ0e+KY=</dsig:DigestValue>
+        <dsig:DigestValue>zFDzusYjxz+JpiZZZlo6ZcJi5Xz5fzdAQZncuLpgXMk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

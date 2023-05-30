@@ -87,7 +87,7 @@
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.listBox1);
 			this.Name = "AI_Manager";
-			this.Text = "AI Manager";
+			this.Text = "AI Config";
 			this.Load += new System.EventHandler(this.AI_Manager_Load);
 			this.ResumeLayout(false);
 

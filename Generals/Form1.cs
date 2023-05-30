@@ -42,15 +42,12 @@ namespace Generals
 
 		private void readmeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Copyright 2023@ynycoding.\n" +
-				"This is an early access version, some functions are not available.\n" +
-				"Before starting a game, please make sure you've properly set the framerate and AI executable's paths. To start a game, " +
-				"you must load a map beforehand.\n", "Readme");
+			Process.Start("readme.pdf");
 		}
 
 		private void howToInteractToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("interaction rule.md");
+			Process.Start("interaction rule.pdf");
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -62,7 +59,7 @@ namespace Generals
 
 		private void gameRulesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Press WASD to move all but one sodier. You can also move only half the army by holding CTRL when giving orders.", "Readme");
+			MessageBox.Show("Press WASD to move all but one sodier. You can also move only half the army by holding CTRL while giving orders.", "Readme");
 		}
 
 		private void button4_Click(object sender, EventArgs e)
