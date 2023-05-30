@@ -1,50 +1,20 @@
-# generals交互方式
+created by ynycoding
 
-最开始一个数字表示你的颜色
+编译文件夹中的mapgen-str作为地图生成器
+推荐每次都使用generator生成随机地图
 
-对于每一轮：
+将平台选项按照如下方式设置：
+AI管理器（可以自己加入多个AI）：
+![](1.png)
+游戏设置：
+![](2.png)
+生成器配置：
+![](3.png)
 
-- 你应该读入 $3$ 个大小 $20\times 20$ 的矩阵，分别为目前所属颜色，该点兵力，节点格式
-- 对于节点格式：`-1` 是不可视，`0` 是空地，`1` 是山， `2` 是塔，`3` 是王塔
-- 你应该输出 $4$ 个整数，分别为 `x y d num` ，`x y` 为要移动的点的坐标$x,y\in [0,20)$，`d` 是方向 $d\in [0,3]$,`num` 是你要移动的兵力
-- 对于方向：`0` 为向上，`1` 为向下，`2` 为向左，`3` 为向右。
 
-### Simple Example
+点击player vs ai即可开始游戏
+AI FFA为AI混战
+都支持多AI
 
-```cpp
-#include<bits/stdc++.h>
-using namespace std;
-int color;
-int dx[]={0,0,-1,1};
-int dy[]={-1,1,0,0};
-inline void work() {
-	static int mp[55][55][3];
-	for(int k=0;k<3;k++) {
-		for(int i=0;i<20;i++) {
-			for(int j=0;j<20;j++) {
-				cin>>mp[i][j][k];
-			}
-		}
-	}
-	vector<pair<int,int> >mynodeset;
-	for(int i=0;i<20;i++) {
-		for(int j=0;j<20;j++) {
-			if(mp[i][j][0]==color) mynodeset.emplace_back(i,j);
-		}
-	}int rak=rand()%mynodeset.size();
-	static int ps[4];
-	for(int i=0;i<4;i++) ps[i]=i;
-	random_shuffle(ps,ps+4);
-	for(int i=0;i<4;i++) {
-		int nx=mynodeset[rak].first+dx[ps[i]],ny=mynodeset[rak].second+dy[ps[i]];
-		if(nx<0||ny<0||nx>=20||ny>=20||mp[nx][ny][2]==1) continue ;
-		if(mp[mynodeset[rak].first][mynodeset[rak].second][1]>1) cout<<mynodeset[rak].first<<' '<<mynodeset[rak].second<<' '<<ps[i]<<' '<<(rand()%(mp[mynodeset[rak].first][mynodeset[rak].second][1]-1)+1)<<endl;
-		else cout<<mynodeset[rak].first<<' '<<mynodeset[rak].second<<' '<<ps[i]<<' '<<0<<endl;
-		return ;
-	}
-}
-int main() {
-	cin>>color;
-	for(;true;) work();
-}
-```
+
+游戏规则为：tower每2s +1sodier  land每50s+1sodier
