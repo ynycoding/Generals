@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Generals.exe" size="51216">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Generals.exe" size="50704">
       <assemblyIdentity name="Generals" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wird2gUPVgJWmHDHCwv0LWC17ZM8AQShYZQmSZ0y+04=</dsig:DigestValue>
+        <dsig:DigestValue>Hwe3O8q6uDXS9OS2/oromjUnfPidRhETJsw2gQw2GcY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -85,6 +85,9 @@ namespace Generals
 
 		private void Performance_Test_FormClosed(object sender, FormClosedEventArgs e)
 		{
+			cnt = -1;
+			game.gameplay.Enabled = false;
+			game.finished = true;
 			game.Dispose();
 		}
 	}

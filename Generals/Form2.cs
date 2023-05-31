@@ -132,6 +132,7 @@ namespace Generals
 
 		private void button3_Click(object sender, EventArgs e)
 		{
+			if (game.gameplay == null) return;
 			game.gameplay.Enabled = false;
 			game.finished = true;
 			game.Dispose();
@@ -172,7 +173,7 @@ namespace Generals
 		{
 			string file = Settings.Default.Generator;
 			string s = Settings.Default.GenArg;
-			if (!File.Exists(file)) return;
+			if (file.Length==0||!File.Exists(file)) return;
 			Process gen = new Process();
 			var start = new ProcessStartInfo();
 			start.FileName = file;
@@ -386,7 +387,7 @@ namespace Generals
 			cx = 0;
 			cy = 0;
 			//if(gameplay!=null) gameplay.Dispose();
-			finished = false;
+			finished = true;
 			for (int i = 1; i <= AI_cnt; ++i)
 			{
 				defeated[i] = false;
@@ -810,7 +811,7 @@ namespace Generals
 			{
 				var buttons = MessageBoxButtons.OK;
 				MessageBox.Show("AI Count can not be greater than King Tower count. AI Count is now set to King Tower Count.",
-					"Warining", buttons, MessageBoxIcon.Warning);
+					"Warning", buttons, MessageBoxIcon.Warning);
 				AI_cnt = cnt;
 			}
 			Spawn();
